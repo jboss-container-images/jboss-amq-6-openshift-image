@@ -23,6 +23,8 @@ envs:
       example: broker-amq-tcp
     - name: AMQ_MESH_DISCOVERY_TYPE
       example: kube
+    - name: AMQ_MESH_QUERY_INTERVAL
+      example: 30
     - name: AMQ_MESH_SERVICE_NAMESPACE
       example: my-project
     - name: AMQ_SPLIT
@@ -126,6 +128,8 @@ sources:
       md5: bdbccee9490a1450ea10077b4f715584
     - artifact: jboss-dmr-1.2.2.Final-redhat-1.jar
       md5: 8df4cbf6f39c3bce21de16ad708084d5
+    - artifact: ce-amq-drain-1.0.0.Final-redhat-1.jar
+      md5: 65b9aba8e5a0b7d7b259a6028f85595e
 dogen:
     version: 2.3.0
     plugins:
