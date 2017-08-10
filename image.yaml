@@ -34,6 +34,9 @@ envs:
     - name: AMQ_LOCK_TIMEOUT
       example: 30
       description: "If allowing multiple instances to share the same Persistent Volume then wait for this timeout period (seconds) to see if an existing server will terminate before moving to the next instance.  Default is 30 seconds."
+    - name: "AMQ_QUEUE_MEMORY_LIMIT"
+      example: "2mb"
+      description: "Sets the queue memory limit in activemq.xml"
     - name: "JAVA_OPTS_APPEND"
       example: "-Dactivemq.foo=bar"
       description: "Server startup options."
