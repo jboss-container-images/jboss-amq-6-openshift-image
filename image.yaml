@@ -1,6 +1,6 @@
 name: "jboss-amq-6/amq62-openshift"
 description: "Red Hat JBoss AMQ 6.2 OpenShift container image"
-version: "1.5"
+version: "1.6"
 from: "jboss-amq-6/amq62:latest"
 user: 185
 labels:
@@ -135,7 +135,7 @@ dogen:
     plugins:
         dist_git:
             repo: jboss-amq-6-docker
-            branch: ce-1.5-openshift-amq-6.2-jdk-8-rhel-7
+            branch: ce-1.6-openshift-amq-6.2-jdk-8-rhel-7
         cct:
             verbose: true
 cct:
