@@ -134,6 +134,7 @@ modules:
           - name: os-amq-optional
           - name: os-java-run
           - name: os-amq-launch
+          - name: os-partition
           - name: os-java-jolokia
           - name: os-amq-jolokia
           - name: os-amq-s2i
