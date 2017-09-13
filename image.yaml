@@ -38,6 +38,9 @@ envs:
     - name: "AMQ_QUEUE_MEMORY_LIMIT"
       example: "2mb"
       description: "Sets the queue memory limit in activemq.xml"
+    - name: AMQ_TRANSPORT_ENABLED_PROTOCOLS
+      example: TLSv1,TLSv1.1,TLSv1.2
+      description: "Sets the enabled SSL protocols"
     - name: "JAVA_OPTS_APPEND"
       example: "-Dactivemq.foo=bar"
       description: "Server startup options."
