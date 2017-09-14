@@ -155,6 +155,8 @@ cct:
                 - install_as_root:
           - cct_module.os-amq-launch:
                 - install_sh:
+          - cct_module.os-partition:
+                - install_as_root:
           - cct_module.os-java-jolokia:
                 - install_as_root:
           - cct_module.os-amq-jolokia:
