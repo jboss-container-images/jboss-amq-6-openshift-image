@@ -41,6 +41,9 @@ envs:
     - name: AMQ_TRANSPORT_ENABLED_PROTOCOLS
       example: TLSv1,TLSv1.1,TLSv1.2
       description: "Sets the enabled SSL protocols"
+    - name: AMQ_NEED_CLIENT_AUTH
+      example: false
+      description: "Sets SSL to require client authentication"
     - name: "JAVA_OPTS_APPEND"
       example: "-Dactivemq.foo=bar"
       description: "Server startup options."
