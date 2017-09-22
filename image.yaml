@@ -27,6 +27,15 @@ envs:
       example: 30
     - name: AMQ_MESH_SERVICE_NAMESPACE
       example: my-project
+    - name: AMQ_USERNAME
+      example: username
+      description: Username for AMQ authentication and authentication
+    - name: AMQ_PASSWORD
+      example: password
+      description: Password corresponding to AMQ_USERNAME
+    - name: AMQ_DNAME
+      example: CN=localhost, OU=broker, O=Unknown, L=Unknown, ST=Unknown, C=Unknown
+      description: SSL certificate distinguished name corresponding to AMQ_USERNAME
     - name: AMQ_SPLIT
       example: true
       description: "Allow multiple instances to share the same Persistent Volume.  If set to true each instance will use a separate area within the Persistent Volume as its data directory.  Default is unset."
