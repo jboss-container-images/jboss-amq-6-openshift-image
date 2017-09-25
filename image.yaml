@@ -131,7 +131,7 @@ sources:
     - artifact: ce-amq-drain-1.0.0.Final-redhat-1.jar
       md5: 65b9aba8e5a0b7d7b259a6028f85595e
 dogen:
-    version: 2.4.3
+    version: 2.4.4
     plugins:
         dist_git:
             repo: jboss-amq-6-docker
