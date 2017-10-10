@@ -129,9 +129,13 @@ envs:
 ports:
     - value: 8778
     - value: 5672
+    - value: 5671
     - value: 1883
+    - value: 8883
     - value: 61613
+    - value: 61612
     - value: 61616
+    - value: 61617
 modules:
       repositories:
           - name: cct_module
