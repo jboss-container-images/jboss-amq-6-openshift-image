@@ -142,6 +142,7 @@ modules:
           - name: os-amq-s2i
           - name: os-amq-permissions
           - name: openshift-passwd
+          - name: os-logging
 packages:
       repositories:
           - jboss-os
