@@ -2,7 +2,7 @@ schema_version: 1
 
 name: "jboss-amq-6/amq62-openshift"
 description: "Red Hat JBoss AMQ 6.2 OpenShift container image"
-version: "1.6"
+version: "1.7"
 from: "jboss-amq-6/amq62:latest"
 labels:
     - name: "io.k8s.description"
@@ -163,4 +163,4 @@ run:
 osbs:
       repository:
             name: jboss-amq-6-docker
-            branch: ce-1.6-openshift-amq-6.2-jdk-8-rhel-7
+            branch: ce-1.7-openshift-amq-6.2-jdk-8-rhel-7
