@@ -175,4 +175,4 @@ run:
 osbs:
       repository:
             name: jboss-amq-6-docker
-            branch: ce-1.8-openshift-amq-6.2-jdk-8-rhel-7
+            branch: jb-amq-6.2-openshift-rhel-7
