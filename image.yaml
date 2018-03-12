@@ -117,8 +117,6 @@ modules:
 packages:
       repositories:
           - jboss-os
-          - jboss-ocp
-          - jboss-rhscl
       install:
           - PyYAML
 artifacts:
