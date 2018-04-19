@@ -85,6 +85,18 @@ envs:
     - name: "INITIAL_HEAP_PERCENT"
       example: 0.5
       description: Deprecated.  See JAVA_INITIAL_MEM_RATIO.
+    - name: "AMQ_KEYSTORE_PASSWORD"
+      example: "mykeystorepass"
+      description: "SSL keystore password"
+    - name: "AMQ_KEY_PASSWORD"
+      example: "mykeypass"
+      description: "SSL key password"
+    - name: "AMQ_KEYSTORE"
+      example: "keystore.jks"
+      description: "The filename of the keystore"
+    - name: "AMQ_KEYSTORE_TRUSTSTORE_DIR"
+      example: "/etc/amq-secret-volume"
+      description: "The path of the keystore file"
 ports:
     - value: 5672
     - value: 5671
