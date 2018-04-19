@@ -75,13 +75,6 @@ modules:
           - name: os-amq-permissions
           - name: openshift-passwd
           - name: os-logging
-packages:
-      repositories:
-          - jboss-os
-          - jboss-ocp
-          - jboss-rhscl
-      install:
-          - PyYAML
 
 run:
       user: 185
