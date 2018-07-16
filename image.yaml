@@ -63,7 +63,6 @@ modules:
                   ref: master
       install:
           - name: dynamic-resources
-          - name: s2i-common
           - name: os-amq-secure-mgmt-console
           - name: os-amq-optional
           - name: os-java-run
@@ -75,7 +74,9 @@ modules:
           - name: os-amq-permissions
           - name: openshift-passwd
           - name: os-logging
-
+packages:
+      repositories:
+          - jboss-os
 run:
       user: 185
       cmd:
