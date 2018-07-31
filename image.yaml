@@ -119,7 +119,7 @@ modules:
           - name: cct_module
             git:
                   url: https://github.com/jboss-openshift/cct_module.git
-                  ref: sprint-13
+                  ref: sprint-21
       install:
           - name: dynamic-resources
           - name: s2i-common
@@ -151,5 +151,5 @@ run:
           - "/opt/amq/bin/launch.sh"
 osbs:
       repository:
-            name: jboss-amq-6-docker
-            branch: ce-1.3-openshift-amq-6.3-jdk-8-rhel-7
+            name: containers/jboss-amq-6
+            branch: jb-amq-6.3-openshift-rhel-7
