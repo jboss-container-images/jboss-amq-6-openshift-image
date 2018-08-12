@@ -14,7 +14,7 @@ labels:
     - name: "io.openshift.tags"
       value: "messaging,amq,java,jboss,xpaas"
     - name: "io.openshift.s2i.scripts-url"
-      value: "image:///usr/local/s2i"
+      value: "image:///usr/libexec/s2i"
 envs:
     - name: AMQ_USERNAME
       example: username
