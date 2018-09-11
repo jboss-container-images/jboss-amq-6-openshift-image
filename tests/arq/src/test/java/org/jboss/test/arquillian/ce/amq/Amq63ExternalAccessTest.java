@@ -29,6 +29,7 @@ import org.arquillian.cube.openshift.api.Template;
 import org.arquillian.cube.openshift.api.TemplateParameter;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.test.arquillian.ce.amq.support.AmqExternalAccessTestBase;
+import org.junit.Ignore;
 import org.junit.runner.RunWith;
 
 @RunWith(Arquillian.class)
@@ -48,6 +49,7 @@ import org.junit.runner.RunWith;
 @OpenShiftResource("classpath:amq-routes.json")
 @OpenShiftResource("classpath:amq-app-secret.json")
 @OpenShiftResource("classpath:testrunner-secret.json")
+@Ignore("This test is hanging, needs to be investigated")
 public class Amq63ExternalAccessTest extends AmqExternalAccessTestBase {
 
     static {
