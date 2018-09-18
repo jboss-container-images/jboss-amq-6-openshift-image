@@ -267,24 +267,20 @@ public class AmqClient {
         }
     }
 
-    public void createVirtualTopicSubscriber(String subscriptionName) throws Exception {
+    public Connection createVirtualTopicSubscriberDemand(String subscriptionName) throws Exception {
         Connection conn = null;
-        try {
-            ConnectionFactory cf = getAMQConnectionFactory(false);
-            conn = createConnection(cf, username, password);
-            conn.setClientID("tmp123");
+        ConnectionFactory cf = getAMQConnectionFactory(false);
+        conn = createConnection(cf, username, password);
 
-            conn.start();
+        conn.start();
 
-            Session session = conn.createSession(false, Session.AUTO_ACKNOWLEDGE);
-            Destination tFoo = session.createQueue("Consumer." + subscriptionName + ".VirtualTopic.FOO");
+        // this consumer won't ack
+        Session session = conn.createSession(false, Session.CLIENT_ACKNOWLEDGE);
+        Destination tFoo = session.createQueue("Consumer." + subscriptionName + ".VirtualTopic.FOO");
 
-            // This may need to remain open
-            MessageConsumer consumer = session.createConsumer(tFoo);
-            consumer.close();
-        } finally {
-            close(conn);
-        }
+        // This needs to remain open, hence the returned connection handle
+        MessageConsumer consumer = session.createConsumer(tFoo);
+        return conn;
     }
 
     public void produceVirtualTopic(String message) throws Exception {
@@ -321,7 +317,11 @@ public class AmqClient {
             while (N > 0) {
                 TextMessage msg = (TextMessage)consumer.receive(timeout);
                 if (msg == null) {
-                    throw new IllegalStateException("Missing " + N + " messages.");
+                    // one more try
+                    msg = (TextMessage)consumer.receive(4000);
+                }
+                if (msg == null) {
+                    throw new IllegalStateException("Missing " + N + " messages on sub: " + subscriptionName);
                 }
                 msgs.add(msg.getText());
                 N--;
