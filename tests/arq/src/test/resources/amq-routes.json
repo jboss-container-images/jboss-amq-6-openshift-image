@@ -1,0 +1,82 @@
+{
+	"apiVersion": "v1",
+	"kind": "List",
+	"items": [
+		{
+		    "apiVersion": "v1",
+		    "kind": "Route",
+		    "metadata": {
+		        "name": "amq-test-tcp",
+		        "labels": {
+		            "application": "amq-test"
+		        }
+		    },
+		    "spec": {
+		        "to": {
+		            "kind": "Service",
+		            "name": "amq-test-amq-tcp-ssl"
+		        },
+                "tls": {
+                	"termination": "passthrough"
+                }
+		    }
+		},
+		{
+		    "kind": "Route",
+		    "apiVersion": "v1",
+		    "metadata": {
+		        "name": "amq-test-amqp",
+		        "labels": {
+		            "application": "amq-test"
+		        }
+		    },
+		    "spec": {
+		        "to": {
+		            "kind": "Service",
+		            "name": "amq-test-amq-amqp-ssl"
+		        },
+                "tls": {
+                	"termination": "passthrough"
+                }
+		    }
+		},
+		{
+		    "kind": "Route",
+		    "apiVersion": "v1",
+		    "metadata": {
+		        "name": "amq-test-mqtt",
+		        "labels": {
+		            "application": "amq-test"
+		        }
+		    },
+		    "spec": {
+		        "to": {
+		            "kind": "Service",
+		            "name": "amq-test-amq-mqtt-ssl"
+		        },
+                "tls": {
+                	"termination": "passthrough"
+                }
+		    }
+		},
+		{
+		    "kind": "Route",
+		    "apiVersion": "v1",
+		    "metadata": {
+		        "name": "amq-test-stomp",
+		        "labels": {
+		            "application": "amq-test"
+		        }
+		    },
+		    "spec": {
+		        "to": {
+		            "kind": "Service",
+		            "name": "amq-test-amq-stomp-ssl"
+		        },
+                "tls": {
+                	"termination": "passthrough"
+                }
+		    }
+		}
+	]
+}
