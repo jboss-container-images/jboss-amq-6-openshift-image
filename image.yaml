@@ -2,7 +2,7 @@ schema_version: 1
 
 name: "jboss-amq-6/amq63-openshift"
 description: "Red Hat JBoss AMQ 6.3 OpenShift container image"
-version: "1.4"
+version: "1.5"
 from: "jboss-amq-6/amq63:latest"
 labels:
     - name: "com.redhat.component"
@@ -60,10 +60,9 @@ modules:
           - name: cct_module
             git:
                   url: https://github.com/jboss-openshift/cct_module.git
-                  ref: sprint-21
+                  ref: sprint-24
       install:
           - name: dynamic-resources
-          - name: s2i-common
           - name: os-amq-secure-mgmt-console
           - name: os-amq-optional
           - name: os-java-run
@@ -75,7 +74,9 @@ modules:
           - name: os-amq-permissions
           - name: openshift-passwd
           - name: os-logging
-
+packages:
+      repositories:
+          - jboss-os
 run:
       user: 185
       cmd:
