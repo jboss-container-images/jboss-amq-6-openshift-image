@@ -2,7 +2,7 @@ schema_version: 1
 
 name: "jboss-amq-6/amq63-openshift"
 description: "Red Hat JBoss AMQ 6.3 OpenShift container image"
-version: "1.4"
+version: "1.5"
 from: "jboss-amq-6/amq63:latest"
 labels:
     - name: "com.redhat.component"
