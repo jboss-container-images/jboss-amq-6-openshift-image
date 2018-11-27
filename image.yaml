@@ -2,7 +2,7 @@ schema_version: 1
 
 name: "jboss-amq-6/amq63-openshift"
 description: "Red Hat JBoss AMQ 6.3 OpenShift container image"
-version: "1.6"
+version: "1.5"
 from: "jboss-amq-6/amq63:latest"
 labels:
     - name: "com.redhat.component"
@@ -57,10 +57,8 @@ ports:
     - value: 61617
 modules:
       repositories:
-          - name: cct_module
-            git:
-                  url: https://github.com/jboss-openshift/cct_module.git
-                  ref: master
+          - path: modules
+
       install:
           - name: dynamic-resources
           - name: os-amq-secure-mgmt-console
@@ -76,7 +74,9 @@ modules:
           - name: os-logging
 packages:
       repositories:
-          - jboss-os
+          - name: jboss-os
+            url:
+               repository: http://git.app.eng.bos.redhat.com/git/jboss-container-tools.git/plain/repos/jboss-rhel-os.repo
 run:
       user: 185
       cmd:
