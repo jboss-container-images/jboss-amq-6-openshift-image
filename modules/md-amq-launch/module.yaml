@@ -1,0 +1,13 @@
+schema_version: 1
+name: md-amq-launch
+version: '1.0'
+description: Legacy md-amq-launch script package migrated from cct_module's os-amq-launch.
+modules:
+  install:
+  - name: os-java-run
+execute:
+- script: install.sh
+
+artifacts:
+- path: ce-amq-drain-1.0.0.Final-redhat-1.jar
+  md5: 65b9aba8e5a0b7d7b259a6028f85595e

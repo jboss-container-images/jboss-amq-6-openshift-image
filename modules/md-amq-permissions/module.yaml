@@ -1,0 +1,6 @@
+schema_version: 1
+name: md-amq-permissions
+version: '1.0'
+description: Legacy md-amq-permissions script package migrated from cct_mdoule's os-amq-permissions
+execute:
+- script: install.sh
