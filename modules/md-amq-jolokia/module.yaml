@@ -1,0 +1,6 @@
+schema_version: 1
+name: md-amq-jolokia
+version: '1.0'
+description: Legacy md-amq-jolokia script package migrated from cct_module's os-amq-jolokia.
+execute:
+- script: install.sh
