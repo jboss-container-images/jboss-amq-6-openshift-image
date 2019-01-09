@@ -2,7 +2,7 @@ schema_version: 1
 
 name: "jboss-amq-6/amq63-openshift"
 description: "Red Hat JBoss AMQ 6.3 OpenShift container image"
-version: "1.4"
+version: "1.5"
 from: "jboss-amq-6/amq63:latest"
 labels:
     - name: "com.redhat.component"
@@ -57,31 +57,41 @@ ports:
     - value: 61617
 modules:
       repositories:
+          - path: modules
           - name: cct_module
             git:
                   url: https://github.com/jboss-openshift/cct_module.git
                   ref: master
+          - name: jboss-eap-modules
+            git:
+                  url: https://github.com/jboss-container-images/jboss-eap-modules.git
+                  ref: master
       install:
           - name: dynamic-resources
-          - name: os-amq-secure-mgmt-console
-          - name: os-amq-optional
+          - name: md-amq-secure-mgmt-console
+          - name: md-amq-optional
           - name: os-java-run
-          - name: os-amq-launch
+          - name: md-amq-launch
           - name: os-partition
           - name: os-java-jolokia
-          - name: os-amq-jolokia
-          - name: os-amq-s2i
-          - name: os-amq-permissions
+          - name: md-amq-jolokia
+          - name: md-amq-s2i
+          - name: md-amq-permissions
           - name: openshift-passwd
           - name: os-logging
 packages:
-      repositories:
-          - jboss-os
+      content_sets_file: content_sets.yml
 run:
       user: 185
       cmd:
           - "/opt/amq/bin/launch.sh"
 osbs:
+      configuration:
+          container:
+              compose:
+                  pulp_repos: true
       repository:
-            name: containers/jboss-amq-6
-            branch: jb-amq-6.3-openshift-rhel-7
+          name: containers/jboss-amq-6
+          branch: jb-amq-6.3-openshift-rhel-7
+
+
