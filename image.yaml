@@ -57,13 +57,13 @@ ports:
     - value: 61617
 modules:
       repositories:
+          - path: modules
           - name: cct_module
             git:
                   url: https://github.com/jboss-openshift/cct_module.git
-                  ref: sprint-21
+                  ref: sprint-27
       install:
           - name: dynamic-resources
-          - name: s2i-common
           - name: os-amq-secure-mgmt-console
           - name: os-amq-optional
           - name: os-java-run
@@ -75,12 +75,19 @@ modules:
           - name: os-amq-permissions
           - name: openshift-passwd
           - name: os-logging
-
+packages:
+      content_sets_file: content_sets.yml
 run:
       user: 185
       cmd:
           - "/opt/amq/bin/launch.sh"
 osbs:
+      configuration:
+          container:
+              compose:
+                  pulp_repos: true
       repository:
-            name: containers/jboss-amq-6
-            branch: jb-amq-6.3-openshift-rhel-7
+          name: containers/jboss-amq-6
+          branch: jb-amq-6.3-openshift-rhel-7
+
+
