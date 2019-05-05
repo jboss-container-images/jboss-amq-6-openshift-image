@@ -10,5 +10,5 @@ execute:
 
 artifacts:
 - name: ce-amq-drain
-  target: ce-amq-drain-1.0.0.Final-redhat-1.jar
-  md5: 65b9aba8e5a0b7d7b259a6028f85595e
+  target: ce-amq-drain-1.0.2.Final-redhat-1.jar
+  md5: 2debe44f34ccec76dfc6588e3da607da
