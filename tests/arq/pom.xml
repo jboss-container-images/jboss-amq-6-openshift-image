@@ -21,7 +21,7 @@
         <version.arquillian>1.4.0.Final</version.arquillian>
         <version.arquillian.cube>1.17.1</version.arquillian.cube>
         <version.jms>1.1</version.jms>
-        <version.activemq>5.11.1</version.activemq>
+        <version.activemq>5.15.10</version.activemq>
         <version.qpid>0.8.0</version.qpid>
         <version.mqtt>1.10</version.mqtt>
         <version.json-simple>1.1.1</version.json-simple>
