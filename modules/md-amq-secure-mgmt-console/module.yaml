@@ -1,0 +1,6 @@
+schema_version: 1
+name: md-amq-secure-mgmt-console
+version: '1.0'
+description: Legacy md-amq-secure-mgmt-console script package migrated from cct_module's os-amq-secure-mgmt-console.
+execute:
+- script: install.sh

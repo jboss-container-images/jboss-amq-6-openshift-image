@@ -1,0 +1,23 @@
+schema_version: 1
+name: md-amq-optional
+version: '1.0'
+description: Legacy md-amq-optional script package migrated from cct_module's os-amq-optional.
+execute:
+- script: install.sh
+envs:
+- name: AMQ_MESH_SERVICE_NAME
+  example: broker-amq-tcp
+- name: AMQ_MESH_DISCOVERY_TYPE
+  example: kube
+- name: AMQ_MESH_QUERY_INTERVAL
+  example: 30
+- name: AMQ_MESH_SERVICE_NAMESPACE
+  example: my-project
+
+artifacts:
+- name: openshift-activemq-plugin
+  target: openshift-activemq-plugin-1.2.4.Final-redhat-1.jar
+  md5: 80f6d74a829c28495c276b51bec878d1
+- name: jboss-dmr
+  target: jboss-dmr-1.2.2.Final-redhat-1.jar
+  md5: 8df4cbf6f39c3bce21de16ad708084d5
