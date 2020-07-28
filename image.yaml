@@ -11,6 +11,8 @@ labels:
       value: "A reliable messaging platform that supports standard messaging paradigms for a real-time enterprise."
     - name: "io.k8s.display-name"
       value: "JBoss A-MQ 6.3"
+    - name: "maintainer"
+      value: "hgao@redhat.com"
     - name: "io.openshift.tags"
       value: "messaging,amq,java,jboss,xpaas"
     - name: "io.openshift.s2i.scripts-url"
