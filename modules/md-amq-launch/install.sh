@@ -8,7 +8,7 @@ SOURCES_DIR="/tmp/artifacts"
 
 cp -p ${ADDED_DIR}/launch.sh ${ADDED_DIR}/configure.sh ${ADDED_DIR}/readinessProbe.sh ${ADDED_DIR}/drain.sh $AMQ_HOME/bin/
 cp -p ${ADDED_DIR}/openshift-activemq.xml ${ADDED_DIR}/openshift-login.config ${ADDED_DIR}/openshift-users.properties ${ADDED_DIR}/log4j.properties $AMQ_HOME/conf/
-cp -p ${SOURCES_DIR}/ce-amq-drain-1.0.0.Final-redhat-1.jar $AMQ_HOME/lib
+cp -p ${SOURCES_DIR}/ce-amq-drain-1.0.3.Final-redhat-1.jar $AMQ_HOME/lib
 
 function findJar() {
   AMQ_LIB="${AMQ_HOME}/lib"
