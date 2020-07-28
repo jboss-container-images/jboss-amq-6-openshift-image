@@ -11,6 +11,8 @@ labels:
       value: "A reliable messaging platform that supports standard messaging paradigms for a real-time enterprise."
     - name: "io.k8s.display-name"
       value: "JBoss A-MQ 6.3"
+    - name: "maintainer"
+      value: "hgao@redhat.com"
     - name: "io.openshift.tags"
       value: "messaging,amq,java,jboss,xpaas"
     - name: "io.openshift.s2i.scripts-url"
@@ -57,30 +59,37 @@ ports:
     - value: 61617
 modules:
       repositories:
+          - path: modules
           - name: cct_module
             git:
                   url: https://github.com/jboss-openshift/cct_module.git
-                  ref: sprint-21
+                  ref: sprint-35  
       install:
           - name: dynamic-resources
-          - name: s2i-common
-          - name: os-amq-secure-mgmt-console
-          - name: os-amq-optional
+          - name: md-amq-secure-mgmt-console
+          - name: md-amq-optional
           - name: os-java-run
-          - name: os-amq-launch
+          - name: md-amq-launch
           - name: os-partition
           - name: os-java-jolokia
-          - name: os-amq-jolokia
-          - name: os-amq-s2i
-          - name: os-amq-permissions
+          - name: md-amq-jolokia
+          - name: md-amq-s2i
+          - name: md-amq-permissions
           - name: openshift-passwd
           - name: os-logging
-
+packages:
+      content_sets_file: content_sets.yml
 run:
       user: 185
       cmd:
           - "/opt/amq/bin/launch.sh"
 osbs:
+      configuration:
+          container:
+              compose:
+                  pulp_repos: true
       repository:
-            name: containers/jboss-amq-6
-            branch: jb-amq-6.3-openshift-rhel-7
+          name: containers/jboss-amq-6
+          branch: jb-amq-6.3-openshift-rhel-7
+
+

@@ -1,0 +1,7 @@
+schema_version: 1
+name: md-amq-s2i
+version: '1.0'
+description: Legacy md-amq-s2i script package migrated from cct_module's os-amq-s2i.
+modules:
+  install:
+  - name: jboss.container.amq.s2i.bash
