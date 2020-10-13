@@ -26,7 +26,7 @@
         <version.mqtt>1.10</version.mqtt>
         <version.json-simple>1.1.1</version.json-simple>
         <version.stompjms>1.19</version.stompjms>
-        <version.junit>4.12</version.junit>
+        <version.junit>4.13.1</version.junit>
         <version.org.jboss.as.arquillian.container>7.2.0.Final</version.org.jboss.as.arquillian.container>
 
         <image>registry.access.redhat.com/jboss-amq-6/amq63-openshift:1.4</image>
