@@ -30,7 +30,7 @@ DRAIN_CLASSPATH="$(findJar ce-amq-drain)"
    #log4j slf4j-log4j12
 for jar in activemq-broker activemq-client slf4j-api geronimo-jms_1.1_spec activemq-kahadb-store \
    activemq-protobuf activemq-openwire-legacy openshift-activemq-plugin hawtbuf-1 \
-   geronimo-j2ee-management_1.1_spec slf4j-log4j12 log4j jboss-dmr
+   geronimo-j2ee-management_1.1_spec jboss-dmr
 do
   DRAIN_CLASSPATH="${DRAIN_CLASSPATH}:$(findJar "$jar")"
 done
