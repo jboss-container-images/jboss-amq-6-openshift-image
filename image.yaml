@@ -63,7 +63,7 @@ modules:
           - name: cct_module
             git:
                   url: https://github.com/jboss-openshift/cct_module.git
-                  ref: sprint-35  
+                  ref: sprint-35
       install:
           - name: dynamic-resources
           - name: md-amq-secure-mgmt-console
@@ -71,7 +71,7 @@ modules:
           - name: os-java-run
           - name: md-amq-launch
           - name: os-partition
-          - name: os-java-jolokia
+          - name: md-jboss.container.jolokia.bash
           - name: md-amq-jolokia
           - name: md-amq-s2i
           - name: md-amq-permissions
@@ -91,5 +91,3 @@ osbs:
       repository:
           name: containers/jboss-amq-6
           branch: jb-amq-6.3-openshift-rhel-7
-
-
