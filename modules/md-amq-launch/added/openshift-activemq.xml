@@ -26,12 +26,6 @@
         </property>
     </bean>
 
-   	<!-- Allows accessing the server log -->
-    <bean id="logQuery" class="io.fabric8.insight.log.log4j.Log4jLogQuery"
-          lazy-init="false" scope="singleton"
-          init-method="start" destroy-method="stop">
-    </bean>
-
     <!--
         The <broker> element is used to configure the ActiveMQ broker.
     -->
@@ -50,7 +44,7 @@
                             any outstanding message acks are passed along the network bridge *before* we start
                             to replay messages (replayDelay="500"). The value of replayDelay is a bit of a guess but
                             on a decently fast network 500 msecs should be enough to pass on and process all message acks.
-              
+
                             Note: JMS clients that use the failover transport to connect to a broker in the mesh
                             arbitrarily should consider using an initialReconnectDelay on the failover url that is
                             higher than replayDelay configured in the broker. E.g.
