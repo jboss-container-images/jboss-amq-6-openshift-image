@@ -34,6 +34,8 @@ artifacts:
 #- name: jolokia-jvm-agent.jar
 - url: http://download.devel.redhat.com/brewroot/packages/org.jolokia-jolokia/1.5.0.redhat_00002/1/maven/org/jolokia/jolokia-jvm/1.5.0.redhat-00002/jolokia-jvm-1.5.0.redhat-00002-agent.jar
   md5: 53c3174eed95e620d9bdd4de2f36393a
+  source-url: http://download.eng.pek2.redhat.com/brewroot/packages/org.jolokia-jolokia/1.5.0.redhat_00002/1/maven/org/jolokia/jolokia-jvm/1.5.0.redhat-00002/jolokia-jvm-1.5.0.redhat-00002-sources.jar
+  source-md5: 961a0b8a9d387a307a35665176374dd9
 
 modules:
   install:

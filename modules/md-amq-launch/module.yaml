@@ -11,4 +11,7 @@ execute:
 artifacts:
 - name: ce-amq-drain
   target: ce-amq-drain-1.0.3.Final-redhat-1.jar
+  url: http://download.devel.redhat.com/brewroot/packages/org.jboss.ce-ce-amq-parent/1.0.3.Final_redhat_1/1/maven/org/jboss/ce/ce-amq-drain/1.0.3.Final-redhat-1/ce-amq-drain-1.0.3.Final-redhat-1.jar
   md5: 7183dbc676936778b74e79254db7f936
+  source-url: http://download.eng.pek2.redhat.com/brewroot/packages/org.jboss.ce-ce-amq-parent/1.0.3.Final_redhat_1/1/maven/org/jboss/ce/ce-amq-drain/1.0.3.Final-redhat-1/ce-amq-drain-1.0.3.Final-redhat-1-sources.jar
+  source-md5: 9f55312bd71c0dc5baa89d3212035043

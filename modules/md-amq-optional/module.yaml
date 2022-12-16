@@ -16,8 +16,14 @@ envs:
 
 artifacts:
 - name: openshift-activemq-plugin
+  url: http://download.eng.bos.redhat.com/brewroot/packages/org.openshift.ping-openshift-ping-parent/1.2.6.Final_redhat_1/1/maven/org/openshift/ping/openshift-activemq-plugin/1.2.6.Final-redhat-1/openshift-activemq-plugin-1.2.6.Final-redhat-1.jar
   target: openshift-activemq-plugin-1.2.6.Final-redhat-1.jar
   md5: b81a8178856dc6d57457a04c6a7c599f
+  source-url: http://download.eng.bos.redhat.com/brewroot/packages/org.openshift.ping-openshift-ping-parent/1.2.6.Final_redhat_1/1/maven/org/openshift/ping/openshift-activemq-plugin/1.2.6.Final-redhat-1/openshift-activemq-plugin-1.2.6.Final-redhat-1-sources.jar
+  source-md5: fe1da8c869713736919d4f931f53db92
 - name: jboss-dmr
+  url: http://download.devel.redhat.com/brewroot/packages/org.jboss-jboss-dmr/1.2.2.Final_redhat_1/1/maven/org/jboss/jboss-dmr/1.2.2.Final-redhat-1/jboss-dmr-1.2.2.Final-redhat-1.jar
   target: jboss-dmr-1.2.2.Final-redhat-1.jar
   md5: 8df4cbf6f39c3bce21de16ad708084d5
+  source-url: http://download.eng.pek2.redhat.com/brewroot/packages/org.jboss-jboss-dmr/1.2.2.Final_redhat_1/1/maven/org/jboss/jboss-dmr/1.2.2.Final-redhat-1/jboss-dmr-1.2.2.Final-redhat-1-sources.jar
+  source-md5: 977354d45b02593da26dc44c8d8d8a03
