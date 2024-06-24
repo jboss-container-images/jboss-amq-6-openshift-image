@@ -45,6 +45,7 @@ import org.junit.runner.RunWith;
                 @TemplateParameter(name = "MQ_QUEUES", value = "QUEUES.FOO,QUEUES.BAR"),
                 @TemplateParameter(name = "MQ_TOPICS", value = "topics.mqtt,TOPICS.FOO"),
                 @TemplateParameter(name = "APPLICATION_NAME", value = "amq-test"),
+                @TemplateParameter(name = "AMQ_MESH_QUERY_INTERVAL", value = "5"), // needs to be respected to the template
                 @TemplateParameter(name = "MQ_USERNAME", value = "${amq.username:amq-test}"),
                 @TemplateParameter(name = "MQ_PASSWORD", value = "${amq.password:redhat}"),
                 @TemplateParameter(name = "MQ_PROTOCOL", value = "openwire,amqp,mqtt,stomp")})
@@ -52,7 +53,12 @@ import org.junit.runner.RunWith;
 @OpenShiftResource("classpath:testrunner-secret.json")
 @OpenShiftResource("classpath:testrunner-secret.json")
 @Replicas(1)
-@Ignore("https://github.com/jboss-openshift/ce-testsite/issues/123")
+//@Ignore("https://github.com/jboss-openshift/ce-testsite/issues/123")
+// there is an issue with being ready before being networked into the mesh - remote demand won't
+// be visible and vt fanout will drop messages for remote consumers
+// AMQ_MESH_QUERY_INTERVAL needs to be in the template to allow mesh discovery to be snappy and
+// the test should verify the presence of network bridges - or the readyness probe should
+// some sleeps in there for the moment
 public class Amq63VirtualTopicSubscriberMigrationTest extends AmqVirtualTopicSubscriberMigrationTestBase {
 
     @Deployment

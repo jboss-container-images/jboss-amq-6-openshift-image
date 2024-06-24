@@ -79,7 +79,7 @@ public class AmqNMigrationsTestBase extends AmqMigrationTestBase {
             }
             Assert.assertTrue("No pod with msgs!?!", pi < pods.size()); // such pod should exist
 
-            log.info(String.format("Deleting pod: %s", pods.get(pi)));
+            log.info(String.format("[%d] Deleting pod: %s", i, pods.get(pi)));
             adapter.deletePod(pods.get(pi), -1);
 
             adapter.waitForReadyPods("amq-test-amq", REPLICAS);

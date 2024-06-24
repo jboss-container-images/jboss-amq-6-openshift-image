@@ -23,8 +23,13 @@
 
 package org.jboss.test.arquillian.ce.amq.support;
 
+import javax.jms.Connection;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.concurrent.TimeUnit;
+import java.util.logging.Logger;
 
 import org.arquillian.cube.openshift.api.OpenShiftHandle;
 import org.jboss.arquillian.container.test.api.RunAsClient;
@@ -39,6 +44,7 @@ import org.junit.Test;
 public class AmqVirtualTopicSubscriberMigrationTestBase extends AmqMigrationTestBase {
 
     private static final int N = 10;
+    private static final Logger log = Logger.getLogger(AmqVirtualTopicSubscriberMigrationTestBase.class.getName());
 
     @Test
     @RunAsClient
@@ -46,17 +52,32 @@ public class AmqVirtualTopicSubscriberMigrationTestBase extends AmqMigrationTest
     public void testScaleUp(@ArquillianResource OpenShiftHandle adapter) throws Exception {
         adapter.scaleDeployment("amq-test-amq", 2); // scale up
         adapter.waitForReadyPods("amq-test-amq", 2);
+
+        log.info("Wait on mesh formation...");
+        TimeUnit.SECONDS.sleep(30);
     }
 
     @Test
     @InSequence(2)
     public void testSendMsgs() throws Exception {
         AmqClient client = createAmqClient("tcp://" + System.getenv("AMQ_TEST_AMQ_TCP_SERVICE_HOST") + ":61616");
+        // the consumer demand needs to outlive message production
+        List<Connection> connections = new ArrayList<>();
         for (int i = 1; i <= N; i++) {
-            client.createVirtualTopicSubscriber("Sub" + i);
+            connections.add(client.createVirtualTopicSubscriberDemand("Sub" + i));
         }
+
+        log.info("Wait on mesh propagation of demand...");
+        TimeUnit.SECONDS.sleep(30);
+
         for (int i = 1; i <= N; i++) {
             client.produceVirtualTopic("Text" + i);
+        }
+
+        for (Connection c: connections) {
+            try {
+                c.close();
+            } catch (Exception ignored) {}
         }
     }
 
@@ -76,10 +97,11 @@ public class AmqVirtualTopicSubscriberMigrationTestBase extends AmqMigrationTest
         AmqClient client = createAmqClient("tcp://" + System.getenv("AMQ_TEST_AMQ_TCP_SERVICE_HOST") + ":61616");
         for (int i = 1; i <= N; i++) {
             Set<Integer> msgNumbers = new TreeSet<>();
-            for (String msg : client.consumeVirtualTopic(N, 2000, "Sub" + i)) {
+            log.info("try consume N for Sub:" + i);
+            for (String msg : client.consumeVirtualTopic(N, 10000, "Sub" + i)) {
                 msgNumbers.add(Integer.parseInt(msg.substring(4)));
             }
-            Assert.assertEquals(N, msgNumbers.size());
+            Assert.assertEquals("for sub[" + i+ "]", N, msgNumbers.size());
         }
     }
 }
